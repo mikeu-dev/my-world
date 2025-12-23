@@ -94,10 +94,15 @@
 		<div
 			in:fade
 			out:fade
-			class="absolute bottom-12 flex animate-pulse flex-col items-center gap-2 opacity-50"
+			class="absolute bottom-12 flex flex-col items-center gap-4 text-center opacity-70 mix-blend-difference"
 		>
-			<span class="text-[10px] tracking-[0.2em] uppercase">Mulai Perjalanan</span>
-			<div class="h-12 w-[1px] bg-gradient-to-b from-transparent to-white"></div>
+			<div class="flex flex-col items-center gap-1">
+				<span class="text-[10px] tracking-[0.3em] uppercase">Klik Atau Scroll Untuk Memulai</span>
+				<span class="text-[8px] tracking-[0.2em] uppercase opacity-60"
+					>( Disarankan Menggunakan Headphone )</span
+				>
+			</div>
+			<div class="h-12 w-[1px] animate-pulse bg-gradient-to-b from-transparent to-white"></div>
 		</div>
 	{/if}
 
