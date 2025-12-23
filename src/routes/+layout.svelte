@@ -9,7 +9,11 @@
 	let { children } = $props();
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+	<link rel="manifest" href="/manifest.json" />
+	<meta name="theme-color" content="#111" />
+</svelte:head>
 
 {@render children()}
 <div style="display:none">

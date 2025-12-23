@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { experienceState, type ExperienceMode } from './state.svelte';
+import { AudioManager } from './AudioManager';
 
 export class ExperienceManager {
     private static instance: ExperienceManager;
@@ -66,6 +67,8 @@ export class ExperienceManager {
             if (experienceState.mode !== mode) experienceState.mode = mode;
 
             // Trigger Transition ONCE
+            AudioManager.getInstance().updateAmbience();
+
             switch (section) {
                 case 0: this.transitionToGenesis(); break;
                 case 1: this.transitionToEnergy(); break;
