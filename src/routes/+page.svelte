@@ -20,7 +20,7 @@
 	const schema = JSON.stringify({
 		'@context': 'https://schema.org',
 		'@type': 'CreativeWork',
-		name: 'Living | Creative Coding Experiment',
+		name: 'ODYSSEY | Creative Coding Experiment',
 		author: {
 			'@type': 'Person',
 			name: 'My World'
@@ -34,7 +34,7 @@
 <svelte:window onclick={startExperience} onscroll={startExperience} />
 
 <svelte:head>
-	<title>Living | Creative Coding Experiment</title>
+	<title>ODYSSEY | Creative Coding Experiment</title>
 	<meta
 		name="description"
 		content="A procedural WebGL organism that evolves with your interaction."
@@ -43,7 +43,7 @@
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://my-world.dev/" />
-	<meta property="og:title" content="Living | Creative Coding Experiment" />
+	<meta property="og:title" content="ODYSSEY | Creative Coding Experiment" />
 	<meta
 		property="og:description"
 		content="A procedural WebGL organism that evolves with your interaction."
@@ -53,7 +53,7 @@
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
 	<meta property="twitter:url" content="https://my-world.dev/" />
-	<meta property="twitter:title" content="Living | Creative Coding Experiment" />
+	<meta property="twitter:title" content="ODYSSEY | Creative Coding Experiment" />
 	<meta
 		property="twitter:description"
 		content="A procedural WebGL organism that evolves with your interaction."

@@ -1,10 +1,10 @@
-# LIVING | Creative Coding Experiment
+# ODYSSEY | Creative Coding Experiment
 
 ![Living Experiment](static/og-image.jpg)
 
 > *“Di dalam ketiadaan, sebuah nafas berhembus perlahan.”*
 
-**LIVING** adalah sebuah eksperimen visual dan audio interaktif berbasis web yang menggabungkan seni generatif, narasi puitis, dan teknologi web modern. Proyek ini mengajak pengguna menelusuri perjalanan evolusi digital dari ketiadaan menuju harmoni melalui 20 bab naratif yang imersif.
+**ODYSSEY** adalah sebuah eksperimen visual dan audio interaktif berbasis web yang menggabungkan seni generatif, narasi puitis, dan teknologi web modern. Proyek ini mengajak pengguna menelusuri perjalanan evolusi digital dari ketiadaan menuju harmoni melalui 20 bab naratif yang imersif.
 
 ## ✨ Fitur Utama
 
