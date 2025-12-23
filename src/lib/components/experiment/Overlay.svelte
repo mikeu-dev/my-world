@@ -11,51 +11,134 @@
 	}
 
 	// Narrative Sections (Bahasa Indonesia)
-	// Cinematic, poetic, and immersive.
+	// Epic Scale: 20 Chapters
 	const narrativeChapters = [
-		// ERA: GENESIS
+		// ERA 1: GENESIS (0-4)
 		{
-			title: 'KEHENINGAN',
-			subtitle: 'Di dalam ketiadaan, sebuah nafas berhembus perlahan.',
-			id: 'genesis_1'
+			title: 'KEHENINGAN ABADI',
+			subtitle:
+				'Di dalam ruang hampa yang tak berujung, di mana waktu belum memiliki nama, sebuah benih kesadaran mulai berdenyut perlahan, menanti panggilan takdir.',
+			id: 'gen_1'
 		},
 		{
-			title: 'AWAL MULA',
-			subtitle: 'Partikel cahaya mulai menari, mencari bentuk dalam kehampaan.',
-			id: 'genesis_2'
-		},
-		// ERA: ENERGY
-		{
-			title: 'ALIRAN',
-			subtitle: 'Energi mulai berkumpul, membentuk sebuah tujuan yang abadi.',
-			id: 'energy_1'
+			title: 'DENYUT PERTAMA',
+			subtitle:
+				'Sebuah getaran halus merambat melalui kegelapan pekat, membangunkan partikel-partikel purba yang telah tertidur selama ribuan tahun cahaya.',
+			id: 'gen_2'
 		},
 		{
-			title: 'GELOMBANG',
-			subtitle: 'Getaran kesadaran menyebar, membangunkan ruang dan waktu.',
-			id: 'energy_2'
+			title: 'KABUT CAHAYA',
+			subtitle:
+				'Perlahan namun pasti, kabut luminesensi mulai terurai, melukiskan pola-pola abstrak di kanvas semesta yang sebelumnya mati dan dingin.',
+			id: 'gen_3'
 		},
-		// ERA: CHAOS
 		{
-			title: 'GEJOLAK',
-			subtitle: 'Struktur retak. Ketidakpastian mengambil alih realitas.',
-			id: 'chaos_1'
+			title: 'KELAHIRAN BENTUK',
+			subtitle:
+				'Dari ketiadaan,materi mulai memadat. Geometri suci terbentuk secara spontan, menentang hukum entropi dengan keanggunan yang membisukan.',
+			id: 'gen_4'
+		},
+		{
+			title: 'FAJAR KESADARAN',
+			subtitle:
+				'Mata batin terbuka. Entitas ini kini menyadari keberadaannya sendiri, memandang ke dalam luasnya kemungkinan yang tak terbatas.',
+			id: 'gen_5'
+		},
+
+		// ERA 2: ENERGY (5-9)
+		{
+			title: 'ALIRAN EMAS',
+			subtitle:
+				'Sungai-sungai energi mulai mengalir deras, membawa kehidupan ke setiap sudut struktur kristalin yang baru terbentuk.',
+			id: 'nrg_1'
+		},
+		{
+			title: 'MOMENTUM',
+			subtitle:
+				'Kecepatan bertambah. Apa yang dulunya diam kini berputar dalam tarian kosmik, menciptakan gravitasi dan magnetisme yang kuat.',
+			id: 'nrg_2'
+		},
+		{
+			title: 'GELOMBANG PANAS',
+			subtitle:
+				'Temperatur meningkat seiring gesekan antar dimensi. Cahaya berubah menjadi emas cair, membakar sisa-sisa keraguan.',
+			id: 'nrg_3'
+		},
+		{
+			title: 'EKSPLOSI MIKRO',
+			subtitle:
+				'Setiap detak adalah ledakan kecil yang melahirkan bintang-bintang baru. Semesta mini tercipta dan musnah dalam hitungan detik.',
+			id: 'nrg_4'
+		},
+		{
+			title: 'PUNCAK DAYA',
+			subtitle:
+				'Kekuatan mencapai titik kritis. Struktur ini bergetar hebat, siap untuk melampaui batas fisiknya menuju evolusi berikutnya.',
+			id: 'nrg_5'
+		},
+
+		// ERA 3: CHAOS (10-14)
+		{
+			title: 'RETAKAN REALITAS',
+			subtitle:
+				'Tekanan menjadi terlalu besar. Garis-garis realitas mulai retak, membiarkan ketidakteraturan merembes masuk dengan liar.',
+			id: 'chs_1'
+		},
+		{
+			title: 'DISTORSI LIAR',
+			subtitle:
+				'Keindahan kini berubah menjadi teror yang memukau. Bentuk-bentuk tajam mencabik ruang, menciptakan simfoni visual yang memekakkan mata.',
+			id: 'chs_2'
 		},
 		{
 			title: 'FRAGMENTASI',
-			subtitle: 'Pecahan-pecahan bertabrakan, melahirkan keindahan yang liar.',
-			id: 'chaos_2'
+			subtitle:
+				'Satu menjadi banyak. Kesatuan pecah menjadi serpihan-serpihan otonom yang saling bertabrakan dalam kekacauan yang sempurna.',
+			id: 'chs_3'
 		},
-		// ERA: HARMONY
 		{
-			title: 'HARMONI',
-			subtitle: 'Dari kekacauan, lahirlah bentuk baru yang sempurna.',
-			id: 'harmony_1'
+			title: 'BADAI ENTROPI',
+			subtitle:
+				'Tidak ada lagi aturan. Hukum fisika dilanggar. Ini adalah tarian kehancuran yang mutlak, namun di dalamnya tersembunyi benih ciptaan baru.',
+			id: 'chs_4'
+		},
+		{
+			title: 'TITIK NOL',
+			subtitle:
+				'Di pusat badai, keheningan yang menakutkan terjadi. Segala sesuatu runtuh ke dalam dirinya sendiri sebelum ledakan terakhir.',
+			id: 'chs_5'
+		},
+
+		// ERA 4: HARMONY (15-19)
+		{
+			title: 'TRANSFORMASI',
+			subtitle:
+				'Debu-debu kekacauan mulai mengendap. Dari reruntuhan, struktur baru yang lebih kuat dan lebih indah mulai menampakkan diri.',
+			id: 'hrm_1'
+		},
+		{
+			title: 'KRISTALISASI',
+			subtitle:
+				'Cahaya menjadi lembut. Warna-warna pastel menyelimuti permukaan yang kini halus seperti cermin, memantulkan kebijaksanaan zaman.',
+			id: 'hrm_2'
+		},
+		{
+			title: 'SIMFONI BARU',
+			subtitle:
+				'Semua elemen bergerak dalam keselarasan. Tidak ada lagi konflik, hanya kerja sama yang indah antar setiap partikel penyusun.',
+			id: 'hrm_3'
 		},
 		{
 			title: 'KESEIMBANGAN',
-			subtitle: 'Abadi. Sebuah dunia baru telah tercipta dalam kedamaian.',
-			id: 'harmony_2'
+			subtitle:
+				'Yin dan Yang bersatu. Gelap dan terang, diam dan gerak, semuanya menemukan tempatnya yang tepat dalam orkestra semesta ini.',
+			id: 'hrm_4'
+		},
+		{
+			title: 'KEABADIAN',
+			subtitle:
+				'Perjalanan berakhir di sini, namun juga baru dimulai. Sebuah siklus sempurna telah tercipta, abadi dalam keindahannya yang tak lekang oleh waktu.',
+			id: 'hrm_5'
 		}
 	];
 </script>
@@ -95,7 +178,28 @@
 			>
 				<!-- Chapter Number (Roman Numerals for grandeur) -->
 				<div class="font-serif text-sm tracking-[0.3em] italic opacity-60">
-					BAB {['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII'][experienceState.section]}
+					BAB {[
+						'I',
+						'II',
+						'III',
+						'IV',
+						'V',
+						'VI',
+						'VII',
+						'VIII',
+						'IX',
+						'X',
+						'XI',
+						'XII',
+						'XIII',
+						'XIV',
+						'XV',
+						'XVI',
+						'XVII',
+						'XVIII',
+						'XIX',
+						'XX'
+					][experienceState.section]}
 				</div>
 
 				<!-- Main Title - Cinematic Typography -->
