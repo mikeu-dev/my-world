@@ -10,7 +10,8 @@ export class HeroObject {
 
   constructor() {
     // High detail for smooth displacement
-    this.geometry = new THREE.IcosahedronGeometry(1.5, 128);
+    // Optimized detail for smooth displacement without dropping frames
+    this.geometry = new THREE.IcosahedronGeometry(1.5, 60);
 
     const params = ExperienceManager.getInstance().params;
 

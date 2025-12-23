@@ -14,9 +14,9 @@ export class ExperienceManager {
         morph: 0,
         roughness: 0.4,
         metalness: 0.1,
-        colorA: new THREE.Color('#ffb703'), // Warm yellow
-        colorB: new THREE.Color('#fb8500'), // Orange
-        colorC: new THREE.Color('#219ebc'), // Blue
+        colorA: new THREE.Color('#0f172a'), // Deep Blue/Slate
+        colorB: new THREE.Color('#334155'), // Muted Blue/Grey
+        colorC: new THREE.Color('#e2e8f0'), // Light Mist
     };
 
     constructor() {
@@ -62,81 +62,89 @@ export class ExperienceManager {
         if (progress < 0.25) {
             section = 0;
             mode = 'GENESIS';
-            this.transitionToGenesis();
         } else if (progress < 0.5) {
             section = 1;
             mode = 'ENERGY';
-            this.transitionToEnergy();
         } else if (progress < 0.75) {
             section = 2;
             mode = 'CHAOS';
-            this.transitionToChaos();
         } else {
             section = 3;
             mode = 'HARMONY';
-            this.transitionToHarmony();
         }
 
+        const prevSection = get(currentSection);
+
         // Only update store if changed to avoid thrashing
-        if (get(currentSection) !== section) currentSection.set(section);
-        if (get(currentMode) !== mode) currentMode.set(mode);
+        if (prevSection !== section) {
+            currentSection.set(section);
+            if (get(currentMode) !== mode) currentMode.set(mode);
+
+            // Trigger Transition ONCE
+            switch (section) {
+                case 0: this.transitionToGenesis(); break;
+                case 1: this.transitionToEnergy(); break;
+                case 2: this.transitionToChaos(); break;
+                case 3: this.transitionToHarmony(); break;
+            }
+        }
     }
 
     // TRANSITIONS (Using GSAP for smooth interpolation)
 
     private transitionToGenesis() {
-        // Calm, breathing, warm colors
+        // Keheningan: Void, Mist, Subtle Light
         gsap.to(this.params, {
             chaosLevel: 0,
-            flowSpeed: 0.3,
-            distortion: 0.2,
+            flowSpeed: 0.2,
+            distortion: 0.1,
             morph: 0,
-            roughness: 0.4,
-            duration: 1.5
+            roughness: 0.6,
+            duration: 2.0
         });
-        gsap.to(this.params.colorA, { r: 1.0, g: 0.8, b: 0.6, duration: 2 }); // Pastel
-        gsap.to(this.params.colorB, { r: 0.4, g: 0.6, b: 0.9, duration: 2 }); // Soft Blue
+        gsap.to(this.params.colorA, { r: 0.1, g: 0.1, b: 0.15, duration: 2 }); // Dark Void
+        gsap.to(this.params.colorB, { r: 0.2, g: 0.2, b: 0.3, duration: 2 }); // Deep Slate
     }
 
     private transitionToEnergy() {
-        // glowing, pulsing, liquid
+        // Aliran: Golden, Flowing, Purposeful
         gsap.to(this.params, {
-            chaosLevel: 0.2,
-            flowSpeed: 1.2,
-            distortion: 0.6, // High waves
-            morph: 0.5,
-            roughness: 0.2, // Shiny
-            duration: 1.5
+            chaosLevel: 0.1,
+            flowSpeed: 1.0,
+            distortion: 0.4,
+            morph: 0.3,
+            roughness: 0.3,
+            duration: 2.0
         });
-        gsap.to(this.params.colorA, { r: 0.1, g: 0.9, b: 0.4, duration: 2 }); // Neon Green
-        gsap.to(this.params.colorB, { r: 0.1, g: 0.1, b: 0.9, duration: 2 }); // Deep Blue
+        gsap.to(this.params.colorA, { r: 0.8, g: 0.6, b: 0.2, duration: 2 }); // Gold
+        gsap.to(this.params.colorB, { r: 0.4, g: 0.2, b: 0.1, duration: 2 }); // Bronze
     }
 
     private transitionToChaos() {
-        // Spiky, fast, glitchy
+        // Gejolak: Crimson, Dark, Fractured
         gsap.to(this.params, {
-            chaosLevel: 0.7, // Reduced from 1.0 for comfort
-            flowSpeed: 2.0, // Reduced from 3.0 for comfort
-            distortion: 1.0,
-            morph: 1.0,
-            roughness: 0.8, // Matte/Rough
-            duration: 1.0 // Faster transition
+            chaosLevel: 0.8,
+            flowSpeed: 2.5,
+            distortion: 1.2,
+            morph: 0.8,
+            roughness: 0.9,
+            duration: 1.5
         });
-        gsap.to(this.params.colorA, { r: 0.9, g: 0.1, b: 0.1, duration: 1 }); // Red
-        gsap.to(this.params.colorB, { r: 0.1, g: 0.0, b: 0.0, duration: 1 }); // Black/Dark
+        gsap.to(this.params.colorA, { r: 0.5, g: 0.0, b: 0.0, duration: 1.5 }); // Dark Red
+        gsap.to(this.params.colorB, { r: 0.1, g: 0.0, b: 0.0, duration: 1.5 }); // Black
     }
 
     private transitionToHarmony() {
-        // Complex but smooth, pearlescent
+        // Harmoni: Pearl, Iridescent, Calm
         gsap.to(this.params, {
-            chaosLevel: 0.1,
-            flowSpeed: 0.5,
-            distortion: 0.4,
-            morph: 0.2,
-            roughness: 0.1, // Very shiny
-            duration: 2.0
+            chaosLevel: 0,
+            flowSpeed: 0.4,
+            distortion: 0.2,
+            morph: 0.1,
+            roughness: 0.1,
+            duration: 3.0
         });
-        gsap.to(this.params.colorA, { r: 0.9, g: 0.9, b: 1.0, duration: 2 }); // Pearl White
-        gsap.to(this.params.colorB, { r: 0.6, g: 0.4, b: 0.6, duration: 2 }); // Soft Purple
+        gsap.to(this.params.colorA, { r: 0.95, g: 0.95, b: 1.0, duration: 3 }); // White/Pearl
+        gsap.to(this.params.colorB, { r: 0.8, g: 0.8, b: 0.9, duration: 3 }); // Soft Silver
     }
 }
