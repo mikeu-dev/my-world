@@ -41,21 +41,20 @@ export class ExperienceManager {
         experienceState.scrollProgress = progress;
 
         // Determine section based on scroll (0.0 - 1.0)
-        // We have 4 sections, so 0.25 chunks
-        let section = 0;
+        // 20 Narrative Chapters (5 per Visual Era)
+        const totalSections = 20;
+        let section = Math.floor(progress * totalSections);
+        if (section >= totalSections) section = totalSections - 1;
+
         let mode: ExperienceMode = 'GENESIS';
 
-        if (progress < 0.25) {
-            section = 0;
+        if (section < 5) {
             mode = 'GENESIS';
-        } else if (progress < 0.5) {
-            section = 1;
+        } else if (section < 10) {
             mode = 'ENERGY';
-        } else if (progress < 0.75) {
-            section = 2;
+        } else if (section < 15) {
             mode = 'CHAOS';
         } else {
-            section = 3;
             mode = 'HARMONY';
         }
 
@@ -70,10 +69,22 @@ export class ExperienceManager {
             AudioManager.getInstance().updateAmbience();
 
             switch (section) {
-                case 0: this.transitionToGenesis(); break;
-                case 1: this.transitionToEnergy(); break;
-                case 2: this.transitionToChaos(); break;
-                case 3: this.transitionToHarmony(); break;
+                case 0:
+                    AudioManager.getInstance().updateAmbience();
+                    this.transitionToGenesis();
+                    break;
+                case 5:
+                    AudioManager.getInstance().updateAmbience();
+                    this.transitionToEnergy();
+                    break;
+                case 10:
+                    AudioManager.getInstance().updateAmbience();
+                    this.transitionToChaos();
+                    break;
+                case 15:
+                    AudioManager.getInstance().updateAmbience();
+                    this.transitionToHarmony();
+                    break;
             }
         }
     }
