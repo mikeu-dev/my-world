@@ -15,6 +15,32 @@
 		if (audioStarted) return;
 		await AudioManager.getInstance().initialize();
 		audioStarted = true;
+		startAutoScroll();
+	}
+
+	let autoScrollInterval: any;
+
+	function startAutoScroll() {
+		// Clear any existing interval
+		if (autoScrollInterval) clearInterval(autoScrollInterval);
+
+		// Gentle auto-scroll (1px every 20ms = 50px/sec)
+		// Ideally slow enough to read, fast enough to see movement
+		autoScrollInterval = setInterval(() => {
+			window.scrollBy({ top: 1, behavior: 'auto' });
+
+			// Safety stop at bottom
+			if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+				stopAutoScroll();
+			}
+		}, 30);
+	}
+
+	function stopAutoScroll() {
+		if (autoScrollInterval) {
+			clearInterval(autoScrollInterval);
+			autoScrollInterval = null;
+		}
 	}
 
 	const schema = JSON.stringify({
@@ -31,7 +57,12 @@
 	});
 </script>
 
-<svelte:window onclick={startExperience} onscroll={startExperience} />
+<svelte:window
+	onclick={startExperience}
+	onwheel={stopAutoScroll}
+	ontouchmove={stopAutoScroll}
+	onkeydown={stopAutoScroll}
+/>
 
 <svelte:head>
 	<title>ODYSSEY | Creative Coding Experiment</title>

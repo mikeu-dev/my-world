@@ -233,7 +233,7 @@
 			class="absolute bottom-12 flex flex-col items-center gap-4 text-center opacity-70 mix-blend-difference"
 		>
 			<div class="flex flex-col items-center gap-1">
-				<span class="text-[10px] tracking-[0.3em] uppercase">Klik Atau Scroll Untuk Memulai</span>
+				<span class="text-[10px] tracking-[0.3em] uppercase">Klik Untuk Memulai Auto-Play</span>
 				<span class="text-[8px] tracking-[0.2em] uppercase opacity-60"
 					>( Disarankan Menggunakan Headphone )</span
 				>
