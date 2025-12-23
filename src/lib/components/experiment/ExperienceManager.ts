@@ -115,7 +115,7 @@ export class ExperienceManager {
             flowSpeed: 3.0, // Fast
             distortion: 1.0, // Reduced from 2.5 to prevent clipping
             morph: 1.0,
-            roughness: 1.0, // Rough texture
+            roughness: 0.5, // Reduced from 1.0 so Glow/Fresnel still works!
             duration: 1.5
         });
         gsap.to(experienceState.params.colorA, { r: 0.8, g: 0.0, b: 0.0, duration: 1.5 }); // Bright Red
