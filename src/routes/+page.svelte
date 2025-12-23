@@ -13,10 +13,18 @@
 	});
 
 	async function startExperience() {
-		if (audioStarted) return;
-		await AudioManager.getInstance().initialize();
-		audioStarted = true;
-		startAutoScroll();
+		if (!audioStarted) {
+			// First Interaction: Initialize and Start
+			await AudioManager.getInstance().initialize();
+			audioStarted = true;
+			startAutoScroll();
+			return;
+		}
+
+		// Subsequent clicks stop auto-scroll (User taking control)
+		if (experienceState.isAutoScrolling) {
+			stopAutoScroll();
+		}
 	}
 
 	let autoScrollFrame: number | null = null;
