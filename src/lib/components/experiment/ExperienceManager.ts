@@ -111,9 +111,9 @@ export class ExperienceManager {
     private transitionToChaos() {
         // Gejolak: Crimson, Dark, Fractured
         gsap.to(experienceState.params, {
-            chaosLevel: 1.5, // EXTREME CHAOS
-            flowSpeed: 4.0, // Very Fast
-            distortion: 2.5, // Spiky
+            chaosLevel: 1.0, // High but controlled
+            flowSpeed: 3.0, // Fast
+            distortion: 1.0, // Reduced from 2.5 to prevent clipping
             morph: 1.0,
             roughness: 1.0, // Rough texture
             duration: 1.5
