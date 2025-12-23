@@ -8,6 +8,7 @@ class ExperienceState {
     mode = $state<ExperienceMode>('GENESIS');
     scrollProgress = $state(0);
     isAutoScrolling = $state(false);
+    autoPlaySpeed = $state(1.0); // 0.5x to 4.0x multiplier
 
     // Parameter State (for shaders/animation)
     params = $state({

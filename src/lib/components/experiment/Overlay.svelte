@@ -242,15 +242,34 @@
 		</div>
 	{/if}
 
-	<!-- Active Indicator -->
+	<!-- Active Indicator & Speed Control -->
 	{#if experienceState.isAutoScrolling}
 		<div
 			in:fade
 			out:fade
-			class="pointer-events-none absolute top-8 right-8 flex items-center gap-2 mix-blend-difference"
+			class="pointer-events-auto absolute top-8 right-8 flex flex-col items-end gap-2 mix-blend-difference"
 		>
-			<div class="h-2 w-2 animate-pulse rounded-full bg-red-500"></div>
-			<span class="font-mono text-[10px] tracking-widest text-white uppercase opacity-80">REC</span>
+			<div class="mb-1 flex items-center gap-2">
+				<div class="h-2 w-2 animate-pulse rounded-full bg-red-500"></div>
+				<span class="font-mono text-[10px] tracking-widest text-white uppercase opacity-80"
+					>REC</span
+				>
+			</div>
+
+			<!-- Speed Controls -->
+			<div class="flex gap-2">
+				{#each [0.5, 1.0, 2.0, 4.0] as speed}
+					<button
+						onclick={() => (experienceState.autoPlaySpeed = speed)}
+						class="rounded border border-white/20 px-1.5 py-0.5 font-mono text-[9px] transition-colors hover:bg-white hover:text-black {experienceState.autoPlaySpeed ===
+						speed
+							? 'bg-white text-black'
+							: 'text-white opacity-50'}"
+					>
+						{speed}x
+					</button>
+				{/each}
+			</div>
 		</div>
 	{/if}
 

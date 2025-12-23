@@ -19,29 +19,43 @@
 		startAutoScroll();
 	}
 
-	let autoScrollInterval: any;
+	let autoScrollFrame: number | null = null;
+	let scrollAccumulator = 0;
 
 	function startAutoScroll() {
-		// Clear any existing interval
-		if (autoScrollInterval) clearInterval(autoScrollInterval);
+		if (autoScrollFrame) cancelAnimationFrame(autoScrollFrame);
+		experienceState.isAutoScrolling = true;
 
-		// Gentle auto-scroll (1px every 20ms = 50px/sec)
-		// Ideally slow enough to read, fast enough to see movement
-		autoScrollInterval = setInterval(() => {
-			window.scrollBy({ top: 1, behavior: 'auto' });
-			if (!experienceState.isAutoScrolling) experienceState.isAutoScrolling = true;
+		const loop = () => {
+			if (!experienceState.isAutoScrolling) return;
 
-			// Safety stop at bottom
-			if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-				stopAutoScroll();
+			// Base speed: 0.5px per frame @ 60fps ~= 30px/sec
+			// Multiplier: 1x -> 0.5px, 2x -> 1.0px, 4x -> 2.0px
+			const baseSpeed = 0.5;
+			scrollAccumulator += baseSpeed * experienceState.autoPlaySpeed;
+
+			if (scrollAccumulator >= 1) {
+				const pixelsToScroll = Math.floor(scrollAccumulator);
+				window.scrollBy({ top: pixelsToScroll, behavior: 'instant' }); // instant prevents smooth-scroll fighting
+				scrollAccumulator -= pixelsToScroll;
 			}
-		}, 30);
+
+			// Safety stop
+			if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+				stopAutoScroll();
+				return;
+			}
+
+			autoScrollFrame = requestAnimationFrame(loop);
+		};
+
+		autoScrollFrame = requestAnimationFrame(loop);
 	}
 
 	function stopAutoScroll() {
-		if (autoScrollInterval) {
-			clearInterval(autoScrollInterval);
-			autoScrollInterval = null;
+		if (autoScrollFrame) {
+			cancelAnimationFrame(autoScrollFrame);
+			autoScrollFrame = null;
 			experienceState.isAutoScrolling = false;
 		}
 	}
