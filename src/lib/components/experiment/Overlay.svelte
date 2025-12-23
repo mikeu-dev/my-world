@@ -226,7 +226,7 @@
 	</div>
 
 	<!-- Scroll Prompt (only active at start) -->
-	{#if experienceState.section === 0 && experienceState.scrollProgress < 0.1}
+	{#if experienceState.section === 0 && experienceState.scrollProgress < 0.1 && !experienceState.isAutoScrolling}
 		<div
 			in:fade
 			out:fade
@@ -239,6 +239,18 @@
 				>
 			</div>
 			<div class="h-12 w-[1px] animate-pulse bg-gradient-to-b from-transparent to-white"></div>
+		</div>
+	{/if}
+
+	<!-- Active Indicator -->
+	{#if experienceState.isAutoScrolling}
+		<div
+			in:fade
+			out:fade
+			class="pointer-events-none absolute top-8 right-8 flex items-center gap-2 mix-blend-difference"
+		>
+			<div class="h-2 w-2 animate-pulse rounded-full bg-red-500"></div>
+			<span class="font-mono text-[10px] tracking-widest text-white uppercase opacity-80">REC</span>
 		</div>
 	{/if}
 

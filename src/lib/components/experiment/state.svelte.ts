@@ -7,6 +7,7 @@ class ExperienceState {
     section = $state(0);
     mode = $state<ExperienceMode>('GENESIS');
     scrollProgress = $state(0);
+    isAutoScrolling = $state(false);
 
     // Parameter State (for shaders/animation)
     params = $state({

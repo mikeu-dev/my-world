@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import Overlay from '$lib/components/experiment/Overlay.svelte';
 	import { AudioManager } from '$lib/components/experiment/AudioManager';
+	import { experienceState } from '$lib/components/experiment/state.svelte';
 
 	let Scene: any = $state(null);
 	let audioStarted = $state(false);
@@ -28,6 +29,7 @@
 		// Ideally slow enough to read, fast enough to see movement
 		autoScrollInterval = setInterval(() => {
 			window.scrollBy({ top: 1, behavior: 'auto' });
+			if (!experienceState.isAutoScrolling) experienceState.isAutoScrolling = true;
 
 			// Safety stop at bottom
 			if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
@@ -40,6 +42,7 @@
 		if (autoScrollInterval) {
 			clearInterval(autoScrollInterval);
 			autoScrollInterval = null;
+			experienceState.isAutoScrolling = false;
 		}
 	}
 
